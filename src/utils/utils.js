@@ -17,7 +17,7 @@ export function randomCountry(num, rand, name = "country") {
 
   for (let i = 0; i < num; i++) {
     if (name === country[rand[i]].name) {
-      array.push(country[rand[i] - 1]);
+      array.push(country[randomNumber(250)[i]]);
     } else {
       array.push(country[rand[i]]);
     }
@@ -32,7 +32,7 @@ export function randomAsiaCountry(num, rand, name = "country") {
 
   for (let i = 0; i < num; i++) {
     if (name === asia[rand[i]].name) {
-      array.push(asia[rand[i] + 1]);
+      array.push(asia[randomNumber(50)[i]]);
     } else {
       array.push(asia[rand[i]]);
     }

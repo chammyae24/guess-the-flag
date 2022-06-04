@@ -16,11 +16,7 @@ export function randomCountry(num, rand, name = "country") {
   // console.log(rand);
 
   for (let i = 0; i < num; i++) {
-    if (name === country[rand[i]].name) {
-      array.push(country[randomNumber(250)[i]]);
-    } else {
-      array.push(country[rand[i]]);
-    }
+    array.push(country[randomNumber(250)[i]]);
   }
 
   return array;
@@ -31,11 +27,7 @@ export function randomAsiaCountry(num, rand, name = "country") {
   // console.log(rand);
 
   for (let i = 0; i < num; i++) {
-    if (name === asia[rand[i]].name) {
-      array.push(asia[randomNumber(50)[i]]);
-    } else {
-      array.push(asia[rand[i]]);
-    }
+    array.push(asia[randomNumber(50)[i]]);
   }
 
   return array;
@@ -51,6 +43,7 @@ export function multipleChoices(choices, mode, rand) {
     const shuffel = choice.sort((a, b) => 0.5 - Math.random());
     array.push(shuffel);
   }
+  console.log(array);
 
   return array;
 }

@@ -50,7 +50,7 @@ export function multipleChoices(choices, mode) {
   // const arr = mode === "all" ? rand
 
   for (let i = 0; i < choices.length; i++) {
-    const choice = [choices[i], ...random(3, choices[i].code)];
+    const choice = [...random(3, choices[i].code), choices[i]];
     const shuffel = choice.sort((a, b) => 0.5 - Math.random());
     array.push(shuffel);
   }

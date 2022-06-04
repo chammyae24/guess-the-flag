@@ -13,7 +13,7 @@ export const randomNumber = num => {
 
 export function randomCountry(num, rand, name = "country") {
   let array = [];
-  console.log(rand);
+  // console.log(rand);
 
   for (let i = 0; i < num; i++) {
     if (name === country[rand[i]].name) {
@@ -28,7 +28,7 @@ export function randomCountry(num, rand, name = "country") {
 
 export function randomAsiaCountry(num, rand, name = "country") {
   let array = [];
-  console.log(rand);
+  // console.log(rand);
 
   for (let i = 0; i < num; i++) {
     if (name === asia[rand[i]].name) {

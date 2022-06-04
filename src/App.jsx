@@ -53,7 +53,7 @@ function App() {
           />
 
           <div
-            class="row"
+            class="row ans-btns-container"
             style={{
               margin: 0,
               "pointer-events": controlButtonPointer() ? "none" : "auto"

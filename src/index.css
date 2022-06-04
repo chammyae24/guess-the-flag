@@ -18,3 +18,13 @@ code {
     height: 15rem;
   }
 }
+
+@media (min-width: 992px) {
+  .ans-btns-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .btn-container {
+    width: 50%;
+  }
+}

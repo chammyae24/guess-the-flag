@@ -9,7 +9,7 @@ export default function GameOver({ score, refresh }) {
       <h3>{score().win > 5 ? "You won!" : "You lose!"}</h3>
       <div>
         <button class="btn btn-warning mt-3" onClick={refresh}>
-          Try again
+          {score().win > 5 ? "Restart" : "Try again"}
         </button>
       </div>
     </div>

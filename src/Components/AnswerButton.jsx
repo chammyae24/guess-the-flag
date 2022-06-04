@@ -23,7 +23,7 @@ export default function AnswerButton(props) {
   };
 
   return (
-    <div class="col-lg-3 col-md-6 col-sm-12">
+    <div class="col-lg-12 col-md-6 col-sm-12 btn-container">
       <button class={"btn " + bgcolor()} style={btnStyle} onClick={check}>
         {choice.name}
       </button>

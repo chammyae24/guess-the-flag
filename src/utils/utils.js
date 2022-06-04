@@ -13,7 +13,7 @@ export const randomNumber = num => {
 
 export function randomCountry(num, code = "000") {
   let array = [];
-  // console.log(rand);
+
   let index = randomNumber(250);
 
   for (let i = 0; i < num; i++) {
@@ -31,7 +31,6 @@ export function randomCountry(num, code = "000") {
 export function randomAsiaCountry(num, code = "000") {
   let array = [];
   let index = randomNumber(50);
-  // console.log(rand);
 
   for (let i = 0; i < num; i++) {
     if (code === asia[index[i]].code) {
@@ -55,7 +54,6 @@ export function multipleChoices(choices, mode) {
     const shuffel = choice.sort((a, b) => 0.5 - Math.random());
     array.push(shuffel);
   }
-  console.log(array);
 
   return array;
 }

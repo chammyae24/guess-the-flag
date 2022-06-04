@@ -47,6 +47,10 @@ function App() {
     } else if (mode === "asia") {
       setCountries(randomAsiaCountry(10));
     }
+    setScore({
+      win: 0,
+      lose: 0
+    });
     setNum(0);
     setGame(false);
     setChoices(multipleChoices(countries()));

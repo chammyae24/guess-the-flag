@@ -92,7 +92,9 @@ function App() {
           </div>
           <select class="m-3 form-select" style={selectStyle} onChange={select}>
             <option value="all">All</option>
-            <option value="asia">Asia (Easy)</option>
+            <option value="asia" selected={mode() === "asia"}>
+              Asia (Easy)
+            </option>
           </select>
         </>
       )}

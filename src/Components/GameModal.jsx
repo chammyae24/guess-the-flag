@@ -1,10 +1,10 @@
 import "./gameModal.css";
 import { gameLogic, modal } from "../utils/utils";
 
-export default function GameModal({ setGame, score, setScore }) {
+export default function GameModal({ setGame, score, setModal }) {
   const popUp = () => {
     setGame(gameLogic(score()));
-    setScore({ win: 0, lose: 0 });
+    setModal(false);
   };
 
   return (

@@ -1,4 +1,4 @@
-export default function GameOver({ score, refresh }) {
+export default function GameOver({ score, refresh, mode }) {
   return (
     <div
       class="d-flex flex-column justify-content-center"
@@ -8,7 +8,7 @@ export default function GameOver({ score, refresh }) {
       <h3>Your score: {score().win}/10</h3>
       <h3>{score().win > 5 ? "You won!" : "You lose!"}</h3>
       <div>
-        <button class="btn btn-warning mt-3" onClick={refresh}>
+        <button class="btn btn-warning mt-3" onClick={() => refresh(mode())}>
           {score().win > 5 ? "Restart" : "Try again"}
         </button>
       </div>

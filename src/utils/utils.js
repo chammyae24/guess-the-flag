@@ -11,16 +11,16 @@ export const randomNumber = num => {
   return arr.sort((a, b) => 0.5 - Math.random());
 };
 
-export function randomCountry(num, code = "000") {
+export function randomCountry(num, code = "000", mode = "all") {
   let array = [];
-
-  let index = randomNumber(250);
+  let index = mode === "all" ? randomNumber(250) : randomNumber(50);
+  let state = mode === "all" ? country : asia;
 
   for (let i = 0; i < num; i++) {
-    if (code === country[index[i]].code) {
-      array.push(country[index[i + 1]]);
+    if (code === state[index[i]].code) {
+      array.push(state[index[i + 1]]);
     } else {
-      array.push(country[index[i]]);
+      array.push(state[index[i]]);
     }
     // array.push(country[index[i]]);
   }
@@ -28,29 +28,16 @@ export function randomCountry(num, code = "000") {
   return array;
 }
 
-export function randomAsiaCountry(num, code = "000") {
+export function multipleChoices(choices) {
   let array = [];
-  let index = randomNumber(50);
 
-  for (let i = 0; i < num; i++) {
-    if (code === asia[index[i]].code) {
-      array.push(asia[index[i + 1]]);
-    } else {
-      array.push(asia[index[i]]);
-    }
-    // array.push(asia[randomNumber(50)[i]]);
-  }
-
-  return array;
-}
-
-export function multipleChoices(choices, mode) {
-  let array = [];
-  const random = mode === "all" ? randomCountry : randomAsiaCountry;
-  // const arr = mode === "all" ? rand
-
-  for (let i = 0; i < choices.length; i++) {
-    const choice = [...random(3, choices[i].code), choices[i]];
+  for (let i = 0; i < 10; i++) {
+    const choice = [
+      choices[i],
+      choices[i + 10],
+      choices[i + 20],
+      choices[i + 30]
+    ];
     const shuffel = choice.sort((a, b) => 0.5 - Math.random());
     array.push(shuffel);
   }

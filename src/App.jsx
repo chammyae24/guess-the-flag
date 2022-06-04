@@ -3,14 +3,10 @@ import AnswerButton from "./Components/AnswerButton";
 import GameDisplay from "./Components/GameDisplay";
 import GameModal from "./Components/GameModal";
 import GameOver from "./Components/GameOver";
-import {
-  randomCountry,
-  multipleChoices,
-  randomAsiaCountry
-} from "./utils/utils";
+import { randomCountry, multipleChoices } from "./utils/utils";
 
 function App() {
-  const [countries, setCountries] = createSignal(randomCountry(10));
+  const [countries, setCountries] = createSignal(randomCountry(40));
   const [num, setNum] = createSignal(0);
   const [score, setScore] = createSignal({
     win: 0,
@@ -19,9 +15,7 @@ function App() {
   const [game, setGame] = createSignal(false);
   const [controlButtonPointer, setControlButtonPointer] = createSignal(false);
   const [mode, setMode] = createSignal("all");
-  const [choices, setChoices] = createSignal(
-    multipleChoices(countries(), mode())
-  );
+  const [choices, setChoices] = createSignal(multipleChoices(countries()));
   const [modal, setModal] = createSignal(false);
 
   const select = e => {
@@ -42,18 +36,14 @@ function App() {
   };
 
   const refresh = continent => {
-    if (continent === "all") {
-      setCountries(randomCountry(10));
-    } else if (continent === "asia") {
-      setCountries(randomAsiaCountry(10));
-    }
+    setCountries(randomCountry(40, "000", continent));
     setScore({
       win: 0,
       lose: 0
     });
     setNum(0);
     setGame(false);
-    setChoices(multipleChoices(countries(), mode()));
+    setChoices(multipleChoices(countries()));
   };
 
   return (

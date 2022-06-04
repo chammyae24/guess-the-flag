@@ -14,9 +14,15 @@ export const randomNumber = num => {
 export function randomCountry(num, name = "country") {
   let array = [];
   // console.log(rand);
+  let index = randomNumber(250);
 
   for (let i = 0; i < num; i++) {
-    array.push(country[randomNumber(250)[i]]);
+    if (name === country[index[i]].code) {
+      array.push(country[index[i + 1]]);
+    } else {
+      array.push(country[index[i]]);
+    }
+    // array.push(country[index[i]]);
   }
 
   return array;
@@ -24,10 +30,16 @@ export function randomCountry(num, name = "country") {
 
 export function randomAsiaCountry(num, name = "country") {
   let array = [];
+  let index = randomNumber(50);
   // console.log(rand);
 
   for (let i = 0; i < num; i++) {
-    array.push(asia[randomNumber(50)[i]]);
+    if (name === asia[index[i]].code) {
+      array.push(asia[index[i + 1]]);
+    } else {
+      array.push(asia[index[i]]);
+    }
+    // array.push(asia[randomNumber(50)[i]]);
   }
 
   return array;

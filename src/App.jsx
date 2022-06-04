@@ -44,10 +44,8 @@ function App() {
 
   const refresh = continent => {
     if (continent === "all") {
-      setRand(randomNumber(250));
       setCountries(randomCountry(10));
     } else if (continent === "asia") {
-      setRand(randomNumber(50));
       setCountries(randomAsiaCountry(10));
     }
     setScore({

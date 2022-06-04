@@ -6,8 +6,7 @@ import GameOver from "./Components/GameOver";
 import {
   randomCountry,
   multipleChoices,
-  randomAsiaCountry,
-  randomNumber
+  randomAsiaCountry
 } from "./utils/utils";
 
 function App() {

@@ -11,13 +11,13 @@ export const randomNumber = num => {
   return arr.sort((a, b) => 0.5 - Math.random());
 };
 
-export function randomCountry(num, name = "country") {
+export function randomCountry(num, code = "000") {
   let array = [];
   // console.log(rand);
   let index = randomNumber(250);
 
   for (let i = 0; i < num; i++) {
-    if (name === country[index[i]].code) {
+    if (code === country[index[i]].code) {
       array.push(country[index[i + 1]]);
     } else {
       array.push(country[index[i]]);
@@ -28,13 +28,13 @@ export function randomCountry(num, name = "country") {
   return array;
 }
 
-export function randomAsiaCountry(num, name = "country") {
+export function randomAsiaCountry(num, code = "000") {
   let array = [];
   let index = randomNumber(50);
   // console.log(rand);
 
   for (let i = 0; i < num; i++) {
-    if (name === asia[index[i]].code) {
+    if (code === asia[index[i]].code) {
       array.push(asia[index[i + 1]]);
     } else {
       array.push(asia[index[i]]);
@@ -51,7 +51,7 @@ export function multipleChoices(choices, mode) {
   // const arr = mode === "all" ? rand
 
   for (let i = 0; i < choices.length; i++) {
-    const choice = [choices[i], ...random(3, choices[i].name)];
+    const choice = [choices[i], ...random(3, choices[i].code)];
     const shuffel = choice.sort((a, b) => 0.5 - Math.random());
     array.push(shuffel);
   }

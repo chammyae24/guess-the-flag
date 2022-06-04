@@ -36,7 +36,7 @@ function App() {
   };
 
   const refresh = continent => {
-    setCountries(randomCountry(40, "000", continent));
+    setCountries(randomCountry(40, continent));
     setScore({
       win: 0,
       lose: 0

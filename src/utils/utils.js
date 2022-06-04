@@ -11,17 +11,13 @@ export const randomNumber = num => {
   return arr.sort((a, b) => 0.5 - Math.random());
 };
 
-export function randomCountry(num, code = "000", mode = "all") {
+export function randomCountry(num, mode = "all") {
   let array = [];
   let index = mode === "all" ? randomNumber(250) : randomNumber(50);
   let state = mode === "all" ? country : asia;
 
   for (let i = 0; i < num; i++) {
-    if (code === state[index[i]].code) {
-      array.push(state[index[i + 1]]);
-    } else {
-      array.push(state[index[i]]);
-    }
+    array.push(state[index[i]]);
     // array.push(country[index[i]]);
   }
 

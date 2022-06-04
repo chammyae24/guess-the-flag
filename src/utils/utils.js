@@ -11,7 +11,7 @@ export const randomNumber = num => {
   return arr.sort((a, b) => 0.5 - Math.random());
 };
 
-export function randomCountry(num, rand, name = "country") {
+export function randomCountry(num, name = "country") {
   let array = [];
   // console.log(rand);
 
@@ -22,7 +22,7 @@ export function randomCountry(num, rand, name = "country") {
   return array;
 }
 
-export function randomAsiaCountry(num, rand, name = "country") {
+export function randomAsiaCountry(num, name = "country") {
   let array = [];
   // console.log(rand);
 
@@ -33,13 +33,13 @@ export function randomAsiaCountry(num, rand, name = "country") {
   return array;
 }
 
-export function multipleChoices(choices, mode, rand) {
+export function multipleChoices(choices, mode) {
   let array = [];
   const random = mode === "all" ? randomCountry : randomAsiaCountry;
   // const arr = mode === "all" ? rand
 
   for (let i = 0; i < choices.length; i++) {
-    const choice = [choices[i], ...random(3, rand, choices[i].name)];
+    const choice = [choices[i], ...random(3, choices[i].name)];
     const shuffel = choice.sort((a, b) => 0.5 - Math.random());
     array.push(shuffel);
   }

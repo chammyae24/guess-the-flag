@@ -1,17 +1,28 @@
-export default function GameOver({ score, refresh, mode }) {
+import { createSignal } from "solid-js";
+import GameHistory from "./GameHistory";
+import GameScoreScreen from "./GameScoreScreen";
+
+export default function GameOver(props) {
+  const { score, refresh, mode, countries, storeAnswers, choices } = props;
+
+  const [historyMode, setHistoryMode] = createSignal(false);
+
   return (
-    <div
-      class="d-flex flex-column justify-content-center"
-      style={{ height: "75vh" }}
-    >
-      <h1>{score().win > 5 ? "Congratulations!!" : "Game Over"}</h1>
-      <h3>Your score: {score().win}/10</h3>
-      <h3>{score().win > 5 ? "You won!" : "You lose!"}</h3>
-      <div>
-        <button class="btn btn-warning mt-3" onClick={() => refresh(mode())}>
-          {score().win > 5 ? "Restart" : "Try again"}
-        </button>
-      </div>
-    </div>
+    <>
+      <GameScoreScreen
+        score={score}
+        refresh={refresh}
+        mode={mode}
+        setHistoryMode={setHistoryMode}
+        historyMode={historyMode}
+      />
+      {historyMode() && (
+        <GameHistory
+          countries={countries}
+          storeAnswers={storeAnswers}
+          choices={choices}
+        />
+      )}
+    </>
   );
 }

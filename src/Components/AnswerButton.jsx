@@ -1,7 +1,7 @@
 import { createEffect, createSignal } from "solid-js";
 
 export default function AnswerButton(props) {
-  const { choice, answer, number, setScore } = props;
+  const { choice, answer, number, setScore, setStoreAnswers } = props;
   const [bgcolor, setBgcolor] = createSignal("btn-info");
 
   const check = () => {
@@ -14,6 +14,8 @@ export default function AnswerButton(props) {
     }
 
     number();
+
+    setStoreAnswers(ans => [...ans, choice.name]);
   };
 
   const btnStyle = {

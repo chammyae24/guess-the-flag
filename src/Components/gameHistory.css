@@ -1,0 +1,12 @@
+.game-history {
+  animation: history 1s linear;
+}
+
+@keyframes history {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

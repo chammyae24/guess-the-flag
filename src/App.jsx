@@ -1,4 +1,4 @@
-import { createSignal } from "solid-js";
+import { createEffect, createSignal } from "solid-js";
 import AnswerButton from "./Components/AnswerButton";
 import GameDisplay from "./Components/GameDisplay";
 import GameModal from "./Components/GameModal";
@@ -17,6 +17,8 @@ function App() {
   const [mode, setMode] = createSignal("all");
   const [choices, setChoices] = createSignal(multipleChoices(countries()));
   const [modal, setModal] = createSignal(false);
+
+  const [storeAnswers, setStoreAnswers] = createSignal([]);
 
   const select = e => {
     setMode(e.target.value);
@@ -44,7 +46,12 @@ function App() {
     setNum(0);
     setGame(false);
     setChoices(multipleChoices(countries()));
+    setStoreAnswers([]);
   };
+
+  // createEffect(() => {
+  //   console.log(choices());
+  // });
 
   return (
     <div class="text-center">
@@ -53,7 +60,14 @@ function App() {
       </h1>
 
       {game() ? (
-        <GameOver score={score} refresh={refresh} mode={mode} />
+        <GameOver
+          score={score}
+          refresh={refresh}
+          mode={mode}
+          countries={countries}
+          storeAnswers={storeAnswers}
+          choices={choices}
+        />
       ) : (
         <>
           <GameDisplay
@@ -77,6 +91,7 @@ function App() {
                 answer={countries()[num()].name}
                 number={number}
                 setScore={setScore}
+                setStoreAnswers={setStoreAnswers}
               />
             ))}
           </div>

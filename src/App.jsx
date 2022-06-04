@@ -90,6 +90,10 @@ function App() {
               />
             ))}
           </div>
+          <select class="m-3 form-select" style={selectStyle} onChange={select}>
+            <option value="all">All</option>
+            <option value="asia">Asia (Easy)</option>
+          </select>
         </>
       )}
       {modal() && (
@@ -100,10 +104,6 @@ function App() {
           setModal={setModal}
         />
       )}
-      <select class="m-3 form-select" style={selectStyle} onChange={select}>
-        <option value="all">All</option>
-        <option value="asia">Asia (Easy)</option>
-      </select>
     </div>
   );
 }

@@ -28,17 +28,15 @@ export function multipleChoices(choices) {
 }
 
 export function gameLogic(score) {
-  if (score.win + score.lose === 10) {
-    if (score.win > score.lose) {
-      alert("You Win");
-    } else if (score.win === score.lose) {
-      alert("Draw");
-    } else {
-      alert("You lose");
-    }
+  return score.win + score.lose === 10;
+}
 
-    return true;
+export function modal(score) {
+  if (score.win > score.lose) {
+    return "You Win";
+  } else if (score.win === score.lose) {
+    return "Draw";
+  } else {
+    return "You lose";
   }
-
-  return false;
 }

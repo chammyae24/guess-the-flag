@@ -1,6 +1,7 @@
 import { createSignal } from "solid-js";
 import AnswerButton from "./Components/AnswerButton";
 import GameDisplay from "./Components/GameDisplay";
+import GameModal from "./Components/GameModal";
 import GameOver from "./Components/GameOver";
 import { randomCountry, multipleChoices, gameLogic } from "./utils/utils";
 
@@ -23,13 +24,12 @@ function App() {
         setNum(n => n + 1);
       }, 700);
     }
-    setGame(gameLogic(score()));
+    // setGame(gameLogic(score()));
   };
 
   const refresh = () => {
     setCountries(randomCountry(10));
     setNum(0);
-    setScore({ win: 0, lose: 0 });
     setGame(false);
     setChoices(multipleChoices(countries()));
   };
@@ -69,6 +69,9 @@ function App() {
             ))}
           </div>
         </>
+      )}
+      {gameLogic(score()) && (
+        <GameModal setGame={setGame} score={score} setScore={setScore} />
       )}
     </div>
   );

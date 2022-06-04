@@ -1,0 +1,55 @@
+.game-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: modal 1s linear;
+}
+
+.game-modal {
+  background-color: white;
+  padding: 4rem 5rem;
+  position: relative;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: modal 0.5s linear;
+  animation: modal2 0.5s linear;
+}
+
+.game-modal h1 {
+  font-family: "Fredoka One", cursive;
+  color: #f0680d;
+}
+
+.game-modal-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0.5rem;
+}
+
+@keyframes modal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal2 {
+  from {
+    transform: translateY(50%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}

@@ -10,3 +10,24 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 1140) {
+  .row-container {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .history-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 576px) {
+  .row-container {
+    margin-left: 0;
+  }
+}

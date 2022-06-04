@@ -17,7 +17,7 @@ export function randomCountry(num, rand, name = "country") {
 
   for (let i = 0; i < num; i++) {
     if (name === country[rand[i]].name) {
-      array.push(country[rand[i] + 1]);
+      array.push(country[rand[i] - 1]);
     } else {
       array.push(country[rand[i]]);
     }

@@ -1,26 +1,29 @@
 import { country } from "../../data";
 import { asia } from "../../asia";
 
-// const randomNumber = num => {
-//   let arr = [];
+const randomNumber = num => {
+  let arr = [];
 
-//   for (let i = 0; i < num; i++) {
-//     arr.push(i);
-//   }
+  for (let i = 0; i < num; i++) {
+    arr.push(i);
+  }
 
-//   return arr.sort((a, b) => 0.5 - Math.random());
-// };
+  return arr.sort((a, b) => 0.5 - Math.random());
+};
+
+const rand50 = randomNumber(50);
+const rand250 = randomNumber(250);
 
 export function randomCountry(num, name = "country") {
   // let index = randomNumber(250);
-  let index = () => Math.floor(Math.random() * 250);
+  // let index = () => Math.floor(Math.random() * 250);
   let array = [];
 
   for (let i = 0; i < num; i++) {
-    if (name === country[index()].name) {
-      array.push(country[index() + 1]);
+    if (name === country[rand250[i]].name) {
+      array.push(country[rand250[i] + 1]);
     } else {
-      array.push(country[index()]);
+      array.push(country[rand250[i]]);
     }
   }
 
@@ -28,15 +31,16 @@ export function randomCountry(num, name = "country") {
 }
 
 export function randomAsiaCountry(num, name = "country") {
-  // const index = randomNumber(50);
-  let index = () => Math.floor(Math.random() * 50);
+  // const index = () => randomNumber(50);
+  // let index = () => Math.floor(Math.random() * 50);
   let array = [];
+  // console.log(index);
 
   for (let i = 0; i < num; i++) {
-    if (name === asia[index()].name) {
-      array.push(asia[index() + 1]);
+    if (name === asia[rand50[i]].name) {
+      array.push(asia[rand50[i] + 1]);
     } else {
-      array.push(asia[index()]);
+      array.push(asia[rand50[i]]);
     }
   }
 

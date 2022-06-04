@@ -6,11 +6,13 @@ import GameOver from "./Components/GameOver";
 import {
   randomCountry,
   multipleChoices,
-  randomAsiaCountry
+  randomAsiaCountry,
+  randomNumber
 } from "./utils/utils";
 
 function App() {
-  const [countries, setCountries] = createSignal(randomCountry(10));
+  const [rand, setRand] = createSignal(randomNumber(250));
+  const [countries, setCountries] = createSignal(randomCountry(10, rand()));
   const [num, setNum] = createSignal(0);
   const [score, setScore] = createSignal({
     win: 0,
@@ -20,13 +22,18 @@ function App() {
   const [controlButtonPointer, setControlButtonPointer] = createSignal(false);
   const [mode, setMode] = createSignal("all");
   const [choices, setChoices] = createSignal(
-    multipleChoices(countries(), mode())
+    multipleChoices(countries(), mode(), rand())
   );
   const [modal, setModal] = createSignal(false);
 
   const select = e => {
     setMode(e.target.value);
     refresh(mode());
+    // if (mode() === "all") {
+    //   setRand(randomNumber(250));
+    // } else if (mode() === "asia") {
+    //   setRand(randomNumber(50));
+    // }
   };
 
   const number = () => {
@@ -41,11 +48,13 @@ function App() {
     }
   };
 
-  const refresh = mode => {
-    if (mode === "all") {
-      setCountries(randomCountry(10));
-    } else if (mode === "asia") {
-      setCountries(randomAsiaCountry(10));
+  const refresh = continent => {
+    if (continent === "all") {
+      setRand(randomNumber(250));
+      setCountries(randomCountry(10, rand()));
+    } else if (continent === "asia") {
+      setRand(randomNumber(50));
+      setCountries(randomAsiaCountry(10, rand()));
     }
     setScore({
       win: 0,
@@ -53,7 +62,7 @@ function App() {
     });
     setNum(0);
     setGame(false);
-    setChoices(multipleChoices(countries()));
+    setChoices(multipleChoices(countries(), mode(), rand()));
   };
 
   return (

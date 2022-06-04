@@ -1,7 +1,7 @@
 import { country } from "../../data";
 import { asia } from "../../asia";
 
-const randomNumber = num => {
+export const randomNumber = num => {
   let arr = [];
 
   for (let i = 0; i < num; i++) {
@@ -11,48 +11,43 @@ const randomNumber = num => {
   return arr.sort((a, b) => 0.5 - Math.random());
 };
 
-const rand50 = randomNumber(50);
-const rand250 = randomNumber(250);
-
-export function randomCountry(num, name = "country") {
-  // let index = randomNumber(250);
-  // let index = () => Math.floor(Math.random() * 250);
+export function randomCountry(num, rand, name = "country") {
   let array = [];
+  console.log(rand);
 
   for (let i = 0; i < num; i++) {
-    if (name === country[rand250[i]].name) {
-      array.push(country[rand250[i] + 1]);
+    if (name === country[rand[i]].name) {
+      array.push(country[rand[i] + 1]);
     } else {
-      array.push(country[rand250[i]]);
+      array.push(country[rand[i]]);
     }
   }
 
   return array;
 }
 
-export function randomAsiaCountry(num, name = "country") {
-  // const index = () => randomNumber(50);
-  // let index = () => Math.floor(Math.random() * 50);
+export function randomAsiaCountry(num, rand, name = "country") {
   let array = [];
-  // console.log(index);
+  console.log(rand);
 
   for (let i = 0; i < num; i++) {
-    if (name === asia[rand50[i]].name) {
-      array.push(asia[rand50[i] + 1]);
+    if (name === asia[rand[i]].name) {
+      array.push(asia[rand[i] + 1]);
     } else {
-      array.push(asia[rand50[i]]);
+      array.push(asia[rand[i]]);
     }
   }
 
   return array;
 }
 
-export function multipleChoices(choices, mode) {
+export function multipleChoices(choices, mode, rand) {
   let array = [];
-  const rand = mode === "all" ? randomCountry : randomAsiaCountry;
+  const random = mode === "all" ? randomCountry : randomAsiaCountry;
+  // const arr = mode === "all" ? rand
 
   for (let i = 0; i < choices.length; i++) {
-    const choice = [choices[i], ...rand(3, choices[i].name)];
+    const choice = [choices[i], ...random(3, rand, choices[i].name)];
     const shuffel = choice.sort((a, b) => 0.5 - Math.random());
     array.push(shuffel);
   }

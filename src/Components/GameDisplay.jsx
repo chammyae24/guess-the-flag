@@ -20,7 +20,8 @@ export default function GameDisplay(props) {
 }
 
 const card = {
-  "background-color": "#aaa"
+  "background-color": "#aaa",
+  "box-shadow": "10px 10px 10px rgba(34, 34, 34, 0.3)"
 };
 
 const img = {

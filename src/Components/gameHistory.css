@@ -11,9 +11,10 @@
   }
 }
 
-@media (max-width: 1140) {
+@media (max-width: 992px) {
   .row-container {
     margin-right: 0;
+    margin-left: 0;
   }
 }
 
@@ -23,11 +24,5 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-  }
-}
-
-@media (min-width: 576px) {
-  .row-container {
-    margin-left: 0;
   }
 }

@@ -21,7 +21,8 @@ export default function AnswerButton(props) {
   const btnStyle = {
     padding: "10px ",
     margin: "5px 0",
-    width: "100%"
+    width: "100%",
+    "box-shadow": "10px 10px 10px rgba(34, 34, 34, 0.3)"
   };
 
   return (

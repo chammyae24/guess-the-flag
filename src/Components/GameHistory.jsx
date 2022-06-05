@@ -16,7 +16,11 @@ export default function GameHistory({ countries, storeAnswers, choices }) {
     if (ans1 === countries()[i].name && ans2 === ans1) {
       return <span style={abs}>💖</span>;
     } else if (ans2 === ans1) {
-      return <span style={abs}>❌</span>;
+      return (
+        <span style={{ ...abs, filter: "drop-shadow(0px 0px 10px #ffffff)" }}>
+          ❌
+        </span>
+      );
     } else {
       return "";
     }
@@ -69,7 +73,8 @@ const btnStyle = {
   display: "flex",
   "justify-content": "center",
   "align-items": "center",
-  position: "relative"
+  position: "relative",
+  "box-shadow": "10px 10px 10px rgba(34, 34, 34, 0.3)"
 };
 
 const btnContainerStyle = {
@@ -83,7 +88,8 @@ const imgContainerStyle = {
   height: "10rem",
   "background-color": "#ccc",
   "border-radius": "5px",
-  border: "1px solid #ccc"
+  border: "1px solid #ccc",
+  "box-shadow": "10px 10px 10px rgba(34, 34, 34, 0.3)"
 };
 
 const img = {

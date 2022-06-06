@@ -26,8 +26,6 @@ export default function GameHistory({ countries, storeAnswers, choices }) {
     }
   };
 
-  const arr = [0, 1, 2, 3];
-
   return (
     <div class="game-history">
       <h1 class="mb-4">Game History</h1>
@@ -39,14 +37,13 @@ export default function GameHistory({ countries, storeAnswers, choices }) {
                 <img src={countries()[i].flag} style={img} />
               </div>
               <div style={btnContainerStyle}>
-                {arr.map(c => {
+                {choices()[i].map(choice => {
                   return (
                     <div
-                      class={btnClass(i, choices()[i][c].name, country)}
+                      class={btnClass(i, choice.name, country)}
                       style={btnStyle}
                     >
-                      {choices()[i][c].name}{" "}
-                      {emoji(i, choices()[i][c].name, country)}
+                      {choice.name} {emoji(i, choice.name, country)}
                     </div>
                   );
                 })}

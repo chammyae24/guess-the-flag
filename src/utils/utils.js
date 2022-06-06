@@ -1,5 +1,6 @@
-import { country } from "../../data";
-import { asia } from "../../asia";
+import { country } from "./data/data";
+import { asia } from "./data/asia";
+import { europe } from "./data/europe";
 
 export const randomNumber = num => {
   let arr = [];
@@ -13,12 +14,24 @@ export const randomNumber = num => {
 
 export function randomCountry(num, mode = "all") {
   let array = [];
-  let index = mode === "all" ? randomNumber(250) : randomNumber(50);
-  let state = mode === "all" ? country : asia;
+  let index, state;
+
+  switch (mode) {
+    case "asia":
+      index = randomNumber(50);
+      state = asia;
+      break;
+    case "europe":
+      index = randomNumber(53);
+      state = europe;
+      break;
+    default:
+      index = randomNumber(250);
+      state = country;
+  }
 
   for (let i = 0; i < num; i++) {
     array.push(state[index[i]]);
-    // array.push(country[index[i]]);
   }
 
   return array;

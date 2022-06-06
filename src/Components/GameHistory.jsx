@@ -3,11 +3,11 @@ import "./gameHistory.css";
 export default function GameHistory({ countries, storeAnswers, choices }) {
   const btnClass = (i, ans1, ans2) => {
     if (ans1 === countries()[i].name) {
-      return "btn-success";
+      return "bg-success text-light";
     } else if (ans2 === ans1) {
-      return "btn-danger";
+      return "bg-danger text-light";
     } else {
-      return "btn-info";
+      return "bg-info text-dark";
     }
   };
 

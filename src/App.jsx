@@ -1,4 +1,4 @@
-import { createEffect, createSignal } from "solid-js";
+import { createSignal } from "solid-js";
 import AnswerButton from "./Components/AnswerButton";
 import GameDisplay from "./Components/GameDisplay";
 import GameModal from "./Components/GameModal";
@@ -49,10 +49,6 @@ function App() {
     setStoreAnswers([]);
   };
 
-  // createEffect(() => {
-  //   console.log(choices());
-  // });
-
   return (
     <div class="text-center">
       <h1 class="mt-3" style={title}>
@@ -99,6 +95,9 @@ function App() {
             <option value="all">All</option>
             <option value="asia" selected={mode() === "asia"}>
               Asia (Easy)
+            </option>
+            <option value="europe" selected={mode() === "europe"}>
+              Europe (Easy)
             </option>
           </select>
         </>

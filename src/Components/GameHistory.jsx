@@ -1,4 +1,3 @@
-import { createEffect } from "solid-js";
 import "./gameHistory.css";
 
 export default function GameHistory({ countries, storeAnswers, choices }) {

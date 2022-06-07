@@ -17,6 +17,13 @@ code {
     monospace;
 }
 
+@media (max-width: 576px) {
+  .my-card {
+    width: 20rem;
+    height: 10rem;
+  }
+}
+
 @media (min-width: 576px) {
   .my-card {
     width: 30rem;

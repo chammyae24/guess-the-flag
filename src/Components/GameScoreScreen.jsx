@@ -23,7 +23,7 @@ export default function GameScoreScreen({
           class="btn btn-warning mt-3"
           onClick={() => setHistoryMode(!historyMode())}
         >
-          Game History
+          Check Your Answers
         </button>
       </div>
     </div>
